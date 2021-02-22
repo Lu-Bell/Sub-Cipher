@@ -40,14 +40,17 @@ I chose the picture with the children jumping out of the building due to the hou
 	If I was the publisher and I needed to decide if I was going to post this picture then I would go with Kant’s categorical imperative, because according to my universal law it is something I must do to inform the people of how tragic the event was. The government does not always show the full scope or tragedy of certain events because sometimes it actually might be too tragic but it can also be for their own benefit. If I was a publisher and I had the power to show the world something of such importance I would do it one hundred percent.
 	I can see why he did not post the impact of the jump. In my opinion, that is too much to publish because the photo of them jumping is enough. People already know that the young girl did not survive the fall, we do not need to see her remains after. That is painful and heartbreaking. Her family probably did not want that picture to be taken or published either. But, if the photographer felt the need to do so and it was his duty to take and post that picture he would have been correct in terms of the categorical imperative because no one else’s opinion matters if you feel like the action you must do needs be done.
 """.lower()
+
 encrypt = " "
 
-for i in message:
-    for key, value in dictionary.items():
-        if i == key:
-            encrypt += value
+def encryption():
+    global encrypt
+    for i in message:
+        for key, value in dictionary.items():
+            if i == key:
+                encrypt += value
+    return encrypt
 
-#print(encrypt, end = "")
 def get_key():
     passcode = input("Enter password for key and ecypted message: ")
     if passcode == password:
@@ -56,25 +59,26 @@ def get_key():
 #write the encrypted code to a file
 
 
-f.write('Encrypted Message : {}\n'.format(encrypt))
+f.write('Encrypted Message : {}\n'.format(encryption()))
 f.close()
 
-a.write('Encrypted Message : {}\n'.format(encrypt))
+a.write('Encrypted Message : {}\n'.format(encryption()))
 a.write("Key: {}".format(get_key()))
 a.close
 
-
-
-
-
-
-
 #decrypt
 
+d = open("decrypt.txt", "w")
 decrypt = " "
-for i in encrypt:
-    for key, value in dictionary.items():
-        if i == value:
-            decrypt += key
+def decryption():
+    global decrypt
+    for i in encrypt:
+        for key, value in dictionary.items():
+            if i == value:
+                decrypt += key
+    return decrypt
 
 #print(decrypt, end = " ")
+d.write('Encrypted Message : {}\n'.format(encryption()))
+d.write('Decrypted Message : {}\n'.format(decryption()))
+d.close()
