@@ -1,4 +1,5 @@
 f = open("encrypt.txt", "w")
+a = open("Alice.txt", "w")
 
 dictionary = {
     "a" : "z",
@@ -30,6 +31,8 @@ dictionary = {
     " " : " "
 }
 
+password = "1234"
+
 message = """
 I chose the picture with the children jumping out of the building due to the house fire. This decision seemed like it was life or death type of decision. If I was in a building that was burning and my only chance of survival was jumping, I would take the leap. This ethical decision reminds of Kant’s categorical imperative because this a decision that you have to make. For example, if you are hungry you must eat in order to stop being hungry and for survival. If you want to make it out of the fire alive and your only option is to jump then you must jump. 
 	Categorical imperative is the idea that you do what you have to do regardless of what other people may think of your decision. I believe all journalist should abide by this philosophy. If a journalist feels like he or she needs to publish a picture in order to notify every one of the events that took place they should do so. Seeing little children jumping from a building that’s on fire should not be kept secret. You must notify everyone in order to be prepared for future fires and show how urgent they should change their procedures for fires. The downfall of this idea is that everyone has a different idea of what they “need” or “must” do. If someone believes that they need to harm someone and it is okay to them in terms of their universal law then what can you say? I could tell them it’s wrong because in my universal laws that is wrong but if it isn’t to them then there’s really nothing I can do. 
@@ -45,12 +48,26 @@ for i in message:
             encrypt += value
 
 #print(encrypt, end = "")
-
+def get_key():
+    passcode = input("Enter password for key and ecypted message: ")
+    if passcode == password:
+        print("Encrypted message has been sent to Alice.txt")
+        return str((dictionary))
 #write the encrypted code to a file
 
 
 f.write('Encrypted Message : {}\n'.format(encrypt))
 f.close()
+
+a.write('Encrypted Message : {}\n'.format(encrypt))
+a.write("Key: {}".format(get_key()))
+a.close
+
+
+
+
+
+
 
 #decrypt
 
