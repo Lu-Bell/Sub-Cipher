@@ -1,4 +1,6 @@
 from collections import Counter
+
+q = 1
 f = open("Eve.txt", "w")
 with open("encrypt.txt", "r") as e:
     words = e.read()
@@ -10,7 +12,7 @@ count = sum(x.values())
 for i in sort_orders:
 	#print(i[0], ":", i[1])
     percent = ((i[1] / count) * 100)
-    print(i[0], ":", percent)
+    print(i[0], ":", "{:.2f}".format(percent))
 
 #print(count)
 
