@@ -1,9 +1,11 @@
 from collections import Counter
-
+print("YOUR ENCRYPTION SCHEME IS BEING COMPROMISED!")
+print("\nLETTER FREQUENCY: \n")
+boolean = True
 q = 1
-f = open("Eve.txt", "w")
-with open("encrypt.txt", "r") as e:
-    words = e.read()
+
+with open("encrypt.txt", "r+") as e:
+    words = e.read().lower()
     x = Counter(words) #checks how often a letter appears in the encrypted file
     count = 0
 
@@ -17,9 +19,8 @@ for i in sort_orders:
 #print(count)
 
 
-
 e.close()
-f.close()
+
 #e - .12
 #t - .9
 #a - .8
